@@ -1,10 +1,11 @@
 'use strict'
+
+const uuid = require('uuid')
+
 const express = require('express')
 const router = express.Router()
 
 let data = require('../data/name.js')
-
-let id = 3;
 
 router.route('/')
     .get((req, res) => {
@@ -19,7 +20,7 @@ router.route('/')
             err.statusCode = 400
             next(err)
         } else {
-            const newname = {id: id += 1, name: name}
+            const newname = {id: uuid.v4(), name: name}
             data.push(newname)
             res.status(201).json(name) 
         }

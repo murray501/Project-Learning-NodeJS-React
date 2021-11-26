@@ -34,9 +34,8 @@ async function del() {
     console.log(result.status)
 }
 
-put()
-get()
-del()
+post()
+post()
 get()
 
 
