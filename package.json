@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/murray501/studious-eureka#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "isomorphic-fetch": "^3.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
