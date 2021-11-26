@@ -4,14 +4,14 @@ const router = express.Router()
 
 let data = require('../data/name.js')
 
-let id = 4
+let id = 3;
 
 router.route('/')
     .get((req, res) => {
         console.log("recive get")
         res.json(data)
     })
-    .post((req, res) => {
+    .post((req, res, next) => {
         console.log(`recieve post.\nrequest.body = ${JSON.stringify(req.body)}`)
         const { name } = req.body
         if (typeof name !== 'string' || !name) {
@@ -32,7 +32,7 @@ router.route('/:id(\\d+)')
         data = data.filter(name => name.id !== targetId)
         res.status(204).end()
     })
-    .put((req, res) => {
+    .put((req, res, next) => {
         const targetId = Number(req.params.id)
         console.log(`recieve put.\nrequest.body = ${JSON.stringify(req.body)}`)
         const { name } = req.body
