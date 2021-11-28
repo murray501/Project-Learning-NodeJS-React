@@ -6,14 +6,14 @@ beforeEach(() => {
     data = require('../data/name')
 })
 
-test('get', async () => {
+xtest('get', async () => {
     const res = await fetch('http://localhost:3000/name');
     const received = await res.json(); 
     expect(res.status).toBe(200);
     expect(received).toEqual(data);
 })
 
-test('post', async () => {
+xtest('post', async () => {
     let res = await fetch('http://localhost:3000/name', {
         method: 'POST',
         headers: {
@@ -35,7 +35,7 @@ test('post', async () => {
     expect(content1).toEqual(content2);
 })
 
-test('put', async () => {
+xtest('put', async () => {
     let res = await fetch('http://localhost:3000/name/1', {
         method: 'PUT',
         headers: {
@@ -55,7 +55,7 @@ test('put', async () => {
     expect(content1).toEqual(content2);    
 })
 
-test('del', async () => {
+xtest('del', async () => {
     let res = await fetch('http://localhost:3000/name/2', {
         method: 'DELETE',
     })
@@ -70,7 +70,7 @@ test('del', async () => {
         
 })
 
-test('fail post', async () => {
+xtest('fail post', async () => {
     let res = await fetch('http://localhost:3000/name', {
         method: 'POST',
         headers: {
@@ -83,7 +83,7 @@ test('fail post', async () => {
     expect(received).toEqual({error: 'name is required'});
 })
 
-test('fail put', async () => {
+xtest('fail put', async () => {
     let res = await fetch('http://localhost:3000/name/1', {
         method: 'PUT',
         headers: {
@@ -95,3 +95,6 @@ test('fail put', async () => {
     expect(res.status).toBe(400);
     expect(received).toEqual({error: 'name is required'});
 })
+
+
+

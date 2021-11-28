@@ -4,7 +4,7 @@ const { join } = require('path')
 const db = level(join(__dirname, 'leveldb'))
 
 exports.get = (id) => {
-    db.get(id)
+    return db.get(id)
 }
 
 exports.put = ({id, name}) => {
