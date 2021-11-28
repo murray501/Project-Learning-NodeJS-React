@@ -8,7 +8,7 @@ exports.get = (id) => {
 }
 
 exports.put = ({id, name}) => {
-    db.put(id, name)
+    return db.put(id, name)
 }
 
 exports.fetchAll = async () => {
@@ -28,12 +28,12 @@ exports.removeAll = async () => {
 }
 
 exports.update = ({id, name}) => {
-    db.batch()
+    return db.batch()
       .del(id)
       .put(id, name)
       .write()
 }
 
 exports.del = (id) => {
-    db.del(id)
+    return db.del(id)
 }
