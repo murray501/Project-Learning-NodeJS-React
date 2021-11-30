@@ -24,7 +24,7 @@ router.route('/')
             next(err)
         } else {
             const newname = {id: ++id, name: name}
-            db.put(newname).then(res.status(201).json(newname), next)
+            db.put(newname).then(() => res.status(201).json(newname), next)
         }
     })
 
@@ -32,7 +32,7 @@ router.route('/:id(\\d+)')
     .delete((req, res, next) => {
         const targetId = Number(req.params.id)
         console.log("recive delete.")
-        db.del(id).then(res.status(204).end(), next)
+        db.del(targetId).then(() => res.status(204).end(), next)
     })
     .put((req, res, next) => {
         const targetId = Number(req.params.id)
@@ -44,7 +44,7 @@ router.route('/:id(\\d+)')
             next(err)
         } else {
             let newname = {id: targetId, name: name}
-            db.update(newname).then(res.status(202).json(newname), next)            
+            db.update(newname).then(() => res.status(202).json(newname), next)            
         }
     })
 
