@@ -35,11 +35,13 @@ async function del() {
 }
 
 (async () => {
+    await post('aaaa');
+    await post('bbbb');
     await post('cccc');
     await post('dddd');
-    await put();
-    await del();
-    await get();
+    //await put();
+    //await del();
+    //await get();
 })();
 
 
