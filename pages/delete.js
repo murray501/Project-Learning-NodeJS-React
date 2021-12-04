@@ -3,15 +3,18 @@ import 'isomorphic-fetch'
 import { FaTrash } from "react-icons/fa"
 
 export default function Delete() {
+    const [toggle, setToggle] = useState(false)
+
     const remove = id => {
         let str = '/name/' + id
         fetch(str, {
             method: 'DELETE',
         })
-        .then(async res => res.ok ? get() : alert(await res.text()))
+        .then(async res => res.ok ? setToggle(!toggle) : alert(await res.text()))
     }
 
     const [data, setData] = useState([])
+    
 
     const get = () => {
         fetch(`/name`)
@@ -20,7 +23,7 @@ export default function Delete() {
 
     useEffect(() => {
         get()
-    }, [])       
+    }, [toggle])       
 
     return(
         <>
