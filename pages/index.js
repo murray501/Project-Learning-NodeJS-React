@@ -1,13 +1,15 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import { useEffect, useState } from 'react'
 import { useInput } from "../hooks"
 import { FaTrash } from "react-icons/fa"
 import 'isomorphic-fetch'
 
+const Context = createContext();
+
 export default function Index() {
     const [data, setData] = useState([])
     const [change, setChange] = useState(false)
-
+   
     const onChange = () => {
         setChange(!change)
     }
@@ -28,25 +30,28 @@ export default function Index() {
     }, [change])       
 
     return(
+        <Context.Provider value={{data, onChange}}>
         <>
-        <Get data={data} />
-        <Post data={data} onChange={onChange}/>
-        <Put data={data} onChange={onChange}/>
-        <Delete data={data} onChange={onChange}/>
+        <Get />
+        <Post />
+        <Put />
+        <Delete />
         </>
+        </Context.Provider>
     )
 }
 
-function Post({data, onChange = f => f}) {
+function Post() {
     return (
     <section> 
     <h1>Post Data</h1>
-    <AddForm onChange={onChange} />
+    <AddForm />
     </section>
     )
 }
 
-function AddForm({ onChange = f => f }) {
+function AddForm() {
+    const {data, onChange} = useContext(Context);
     const [Props, reset] = useInput("");
 
     const submit = e => {
@@ -75,7 +80,8 @@ function AddForm({ onChange = f => f }) {
     );
 }
 
-function Get({data}) {
+function Get() {
+    const {data, onChange} = useContext(Context);
     return (
     <section>
     <h1>Get All Data</h1>
@@ -90,18 +96,20 @@ function Get({data}) {
     )    
 }
 
-function Put({data, onChange = f => f}) {
+function Put() {
+    const {data, onChange} = useContext(Context);
     return (
     <section>
     <h1>Change Data</h1>
     <ul>
-        {data.map(dat => <List dat={dat} onChange={onChange}/>) }
+        {data.map(dat => <List dat={dat} />) }
     </ul>
     </section>
     )
 }
 
-function Delete({data, onChange = f => f}) {
+function Delete() {
+    const {data, onChange} = useContext(Context);
     const remove = id => {
         let str = '/name/' + id
         fetch(str, {
@@ -127,7 +135,8 @@ function Delete({data, onChange = f => f}) {
     )
 }
 
-function List({dat, onChange = f => f}) {
+function List({dat}) {
+    const {data, onChange} = useContext(Context);
     const key = dat.key
     const value = dat.value
     const [Props, reset] = useInput(value)
