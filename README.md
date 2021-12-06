@@ -14,6 +14,8 @@ project practicing nodejs and react
   1. In one page, it contains 4 sections such as -> Get All Data, Post Data, Change Data, Delete Data
     
   1. enter name randomly and click "ADD" button several times, it updates all section.
+
+  1. data can be added, changed, deleted.
     
 
 
