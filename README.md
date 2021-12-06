@@ -2,9 +2,11 @@
 first project practicing nodejs and react
 
 # how to run?
-terminal => npm install
+## terminal ##
 
-            npm run dev
+npm install
+
+npm run dev
             
 browser => http://localhost:3000
 
