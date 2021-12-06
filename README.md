@@ -50,6 +50,8 @@ project practicing nodejs and react
  4. NextJS and React
  
     - To enable Server Side Rendering, NextJS is used.
+
+    - In /pages directory, JS files are implemented using React.
     
     
      
