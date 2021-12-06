@@ -1,15 +1,14 @@
 # studious-eureka
-first project practicing nodejs and react
+project practicing nodejs and react
 
 # how to run?
 
-## from terminal
-  
+### from terminal
   - npm install
 
   - npm run dev
             
-## from browser
+### from browser
   - http://localhost:3000
 
   - In one page, it contains 4 sections such as -> Get All Data, Post Data, Change Data, Delete Data
