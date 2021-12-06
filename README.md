@@ -15,11 +15,14 @@ project practicing nodejs and react
     
   1. Enter data randomly and click "ADD" button several times, it updates all section.
 
-  1. Data can be added, changed, deleted.
+  1. Data can be added, changed, deleted in one page.
 
   1. other pages are
+  
     - http://localhost:3000/post
+    
     - http://localhost:3000/put
+    
     - http://localhost:3000/delete
     
 
