@@ -35,9 +35,24 @@ project practicing nodejs and react
     
     - get, post, put, del commands are implemented.
     
-    - to run, client/name.js can be used.
+    - To run, client/name.js can be used.
     
-    - to test, test/name.test.js can be used.
+ 2. Jest
+ 
+    - Test files are implemented using Jest.
+    
+    - Test files are in /test directory.
+ 
+ 3. LevelDB
+    
+    - LevelDB is insalled by "npm install level"
+    
+ 4. NextJS and React
+ 
+    - To enable Server Side Rendering, NextJS is used.
+    
+    
+     
     
  
     
