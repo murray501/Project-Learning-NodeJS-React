@@ -1,5 +1,5 @@
 # studious-eureka
-project practicing nodejs and react
+project learning nodejs and react
 
 # how to run?
 
